@@ -145,10 +145,10 @@ function fetch.magisk(){
 	local json_data VERSION
 	
 	if test "$VERSION_CHANNEL" == "stable"; then
-		VERSION="21.4"
-		MAGISK_DWL="https://github.com/topjohnwu/Magisk/releases/download/v21.4/Magisk-v21.4.zip"
+		VERSION="219.0"
+		MAGISK_DWL="https://github.com/topjohnwu/Magisk/releases/download/v29.0/Magisk-v29.0.apk"
 	else
-		json_data="$(curl --silent "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/stable.json" \
+		json_data="$(curl --silent "https://github.com/topjohnwu/magisk-files/raw/refs/heads/master/canary.json" \
 					| grep -A5 '"magisk":')" || { geco "Error: Failed to fetch latest magisk" && exit 1; }
 		VERSION="$(echo "$json_data" | grep '"version":' | sed -E 's/.*"([^"]+)".*/\1/')"
 		MAGISK_DWL="$(echo "$json_data" | grep '"link":' | sed -E 's/.*"([^"]+)".*/\1/')"
